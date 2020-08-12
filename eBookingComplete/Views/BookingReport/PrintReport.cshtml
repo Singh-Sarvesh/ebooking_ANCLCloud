@@ -1,0 +1,289 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/vendor/jquery-ui/jquery-ui.min.css?BuildNo=@System.Web.Configuration.WebConfigurationManager.AppSettings["BuildNo"]" rel="stylesheet" />
+    <title>Adpro - Report</title>
+    <script type="text/javascript">
+        var appRoot = '@System.Web.Configuration.WebConfigurationManager.AppSettings["RootPath"]';
+    </script>
+    <style tye="text/css">
+        #divPrintReport span {
+            margin-left:10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="divPrintReport" style="overflow: hidden;background:#fff;">
+        <div style="text-align:right;margin:10px;" id="btnprintreport">
+            <input type="button" value="Print this page" onclick="PrintReport()" style="width:10% !important" />
+        </div>
+        <div style="margin:10px;">
+            <h2 id="invoicename" style="text-align:center;background:#aabcf0;"></h2>
+            <div>
+
+                <div>
+                    <div id="div1" style="width:50%;float:left;">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <label>Client Name</label>
+                                        :<span type="text" id="spnrptclientname" autofill="off" autocomplete="off"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label>Address</label>
+                                        :<span type="text" id="spnrptaddress" autofill="off" autocomplete="off"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label>Contact No</label>
+                                        :<span type="text" id="spnrptcontact" autofill="off" autocomplete="off"></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div id="div2" style="width:49%;float:right;">
+                        <table>
+                            <tbody>
+                                <tr>
+
+                                    <td>
+                                        <label>Date</label>
+                                        :<span type="text" id="spnrptdate" autofill="off" autocomplete="off"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label>Agency Name</label>
+                                        :<span type="text" id="spnrptagencyname" autofill="off" autocomplete="off"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label>Agency Code</label>
+                                        :<span type="text" id="spnrptagencycode" autofill="off" autocomplete="off"></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <h4>Booking Information</h4>
+                <div>
+                    <div style="width:50%;float:left;">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+
+                                        <label>Booked By</label>
+                                        :<span type="text" id="spnrptbookedby" autofill="off" autocomplete="off"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label>Order Receipt No</label>
+                                        :<span type="text" id="spnrptorderno" autofill="off" autocomplete="off"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label>Revision No</label>
+                                        :<span type="text" id="spnrptrevisionno" autofill="off" autocomplete="off"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label>Publication</label>
+                                        :<span type="text" id="spnrptpublication" autofill="off" autocomplete="off"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label>Adtype</label>
+                                        :<span type="text" id="spnrptadtype" autofill="off" autocomplete="off"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label>Publication Date</label>
+                                        :<span type="text" id="spnrptpublicationdate" autofill="off" autocomplete="off"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label>Cost</label>
+                                        :<span type="text" id="spnrptcost" autofill="off" autocomplete="off"></span>
+                                    </td>
+                                </tr>
+                                <tr id="trvatamount">
+                                    <td>
+                                        <label>VAT</label>
+                                        :<span type="text" id="spnrptvatamount" autofill="off" autocomplete="off"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label id="lbltotal"></label>
+                                        :<span type="text" id="spnrpttotal" autofill="off" autocomplete="off"></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="divCLReport" style="width:49%;float:right;">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <label>Category1</label>
+                                        :<span type="text" id="spnrptcategory1" autofill="off" autocomplete="off"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label>Category2</label>
+                                        :<span type="text" id="spnrptcategory2" autofill="off" autocomplete="off"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label>Material</label>
+                                        :<span type="text" id="spnrptmaterial" autofill="off" autocomplete="off"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label>No Of Words</label>
+                                        :<span type="text" id="spnrptnoofwords" autofill="off" autocomplete="off"></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div id="divDSReport" style="width:49%;float:right;">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <label>Premia</label>
+                                        :<span type="text" id="spnrptpremia" autofill="off" autocomplete="off"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label>Size</label>
+                                        :<span type="text" id="spnrptsize" autofill="off" autocomplete="off"></span>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <script src="~/Script/jquery-1.10.2.js"></script>
+    <script src="~/vendor/jquery.min.js"></script>
+    <script src="~/vendor/jquery-ui/jquery-ui.js"></script>
+    <script src="~/vendor/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="~/Script/Main.js"></script>
+    <script src="~/Script/Welcome.js?BuildNo=@System.Web.Configuration.WebConfigurationManager.AppSettings[" BuildNo"]"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            PrintReportData();
+        });
+
+        function PrintReportData() {
+            qStr = window.location.href.split('#')[0];
+            if (qStr.indexOf("?Receipetid=") == -1) {
+                alert("Please fill ReceiptID.");
+                window.open('', '_self').close();
+                return false;
+            }
+            var receiptid = qStr.split('?')[1].split('=')[1].split('&')[0];
+            var url = appRoot + "Booking/GetTableData";
+            var param = {};
+            param.ApiName = "/GetPrintReportData";
+            param.ReceiptID = receiptid;
+            var result = getresult(url, param);
+            result = jQuery.parseJSON(result);
+
+            if (result[0].IsClassified == "1") {
+                $("#divCLReport").show();
+                $("#divDSReport").hide();
+            }
+            else {
+                $("#divDSReport").show();
+                $("#divCLReport").hide();
+            }
+            if (result[0].VATNumber != "") {
+                $("#invoicename").html("Tax Invoice");
+                $("#lbltotal").html("Total Amount");
+                $("#trvatamount").css('display', '');
+                $("#divPrintReport").find("label").css("width", "140px"); 
+            }
+            else {
+                $("#invoicename").html("Commercial Invoice");
+                $("#lbltotal").html("Total Amount (Inc. VAT)");
+                $("#trvatamount").css('display', 'none');
+                $("#divPrintReport").find("label").css("width", "175px"); 
+            }
+            for (var i = 0; i < result.length; i++) {
+                $("#spnrptclientname").text(result[i].ClientName);
+                $("#spnrptaddress").text(result[i].Address);
+                $("#spnrptcontact").text(result[i].Phone);
+                $("#spnrptbookedby").text(result[i].BookedBy);
+                $("#spnrptorderno").text(result[i].OrderReceiptNo);
+                $("#spnrptrevisionno").text(result[i].REVISION_NUMBER);
+                $("#spnrptpublication").text(result[i].Publication);
+                $("#spnrptadtype").text(result[i].AdTypeName);
+                $("#spnrptpublicationdate").text(result[i].Pubdate);
+                $("#spnrptcost").text(result[i].Cost);
+                $("#spnrptvatamount").text(result[i].VatAmount);
+                $("#spnrpttotal").text(result[i].Total);
+                $("#spnrptdate").text(result[i].Date);
+                $("#spnrptagencyname").text(result[i].AgencyName);
+                $("#spnrptagencycode").text(result[i].AgencyCode);
+                if (result[0].IsClassified == "1") {
+                    $("#spnrptcategory1").text(result[i].Category1);
+                    $("#spnrptcategory2").text(result[i].Category2);
+                    $("#spnrptmaterial").text(result[i].Material);
+                    $("#spnrptnoofwords").text(result[i].Size);
+                }
+                else {
+                    $("#spnrptpremia").text(result[i].Premia);
+                    $("#spnrptsize").text(result[i].Size);
+                }
+            }
+        }
+
+        function PrintReport() {
+            $("#btnprintreport").hide();
+            window.print();
+            $("#btnprintreport").show();
+            return false;
+        }
+    </script>
+</body>
+</html>
+

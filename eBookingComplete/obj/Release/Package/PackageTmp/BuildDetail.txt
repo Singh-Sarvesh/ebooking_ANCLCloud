@@ -1,0 +1,38 @@
+ Build Number : 1.0 06/07/2020
+            <br />
+            -------------------------------
+            <br />
+            Build Chnages :
+            <br />
+            This text is the content of the box. We have added a 50px padding, 20px margin and a 15px green border.
+            This text is the content of the box. We have added a 50px padding, 20px margin and a 15px green border.
+            This text is the content of the box. We have added a 50px padding, 20px margin and a 15px green border.
+            <br />
+            -------------------------------
+            <br />
+
+            Build Number : 2.0 06/08/2020
+            <br />
+            -------------------------------
+            <br />
+            Build Chnages :
+            <br />
+            This text is the content of the box. We have added a 50px padding, 20px margin and a 15px green border.
+            This text is the content of the box. We have added a 50px padding, 20px margin and a 15px green border.
+            This text is the content of the box. We have added a 50px padding, 20px margin and a 15px green border.
+            <br />
+            -------------------------------
+            <br />
+
+ <br />
+
+            Build Number : 2.0 06/08/2020
+            <br />
+            -------------------------------
+            <br />
+            Build Chnages :
+            <br />
+            This text is the content of the box. We have added a 50px padding, 20px margin and a 15px green border.
+            This text is the content of the box. We have added a 50px padding, 20px margin and a 15px green border.
+            This text is the content of the box. We have added a 50px padding, 20px margin and a 15px green border.
+            <br />
